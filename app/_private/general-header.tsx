@@ -1,10 +1,10 @@
 import { ModeToggle } from "@/components/general/mode-toggle";
-import { WebRoutes } from "@/constants/routes/web-routes";
+import { WebRoutes } from "@/lib/constants/routes/web-routes";
 import Link from "next/link";
 
-export const HomeHeader = () => {
+export const GeneralHeader = () => {
   return (
-    <header className="flex justify-between border-b px-4 pt-4">
+    <header className="flex items-center justify-between border-b px-4 py-2">
       <Link
         href={WebRoutes.home}
         className="font-bold"

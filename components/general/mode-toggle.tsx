@@ -10,7 +10,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { setThemeCookie } from "@/cookies/theme";
+import { setThemeCookie } from "@/lib/cookies/theme";
 import { useCallback, useEffect } from "react";
 
 export function ModeToggle() {

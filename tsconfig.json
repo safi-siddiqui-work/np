@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-, "constants/routes/web-routes.ts"  ],
+, "lib/constants/routes/web-routes.ts"  ],
   "exclude": ["node_modules"]
 }

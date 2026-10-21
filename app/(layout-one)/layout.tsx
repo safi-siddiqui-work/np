@@ -1,9 +1,9 @@
-import { HomeHeader } from "../_private/home-header";
+import { GeneralHeader } from "../_private/general-header";
 
 export default function Layout({ children }: LayoutProps<"/">) {
   return (
     <>
-      <HomeHeader />
+      <GeneralHeader />
       {children}
     </>
   );

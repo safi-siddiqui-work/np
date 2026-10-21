@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { WebRoutes } from "@/constants/routes/web-routes";
+import { WebRoutes } from "@/lib/constants/routes/web-routes";
 import Link from "next/link";
 
 export default function Home() {

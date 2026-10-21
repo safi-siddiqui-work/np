@@ -1,4 +1,4 @@
-import { getThemeCookie } from "@/cookies/theme";
+import { getThemeCookie } from "@/lib/cookies/theme";
 import { cn } from "cn";
 import { Inter } from "next/font/google";
 import { ReactNode } from "react";
