@@ -4,19 +4,12 @@ import Link from "next/link";
 
 export const HomeHeader = () => {
   return (
-    <header className="flex justify-between p-4">
+    <header className="flex justify-between border-b px-4 pt-4">
       <Link
         href={WebRoutes.home}
-        className=""
+        className="font-bold"
       >
-        Home
-      </Link>
-      
-      <Link
-        href={WebRoutes.home}
-        className=""
-      >
-        Home
+        Safi Siddiqui
       </Link>
 
       <ModeToggle />

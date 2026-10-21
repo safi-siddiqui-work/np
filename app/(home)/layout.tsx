@@ -1,4 +1,4 @@
-import { HomeHeader } from "./_header";
+import { HomeHeader } from "../_private/home-header";
 
 export default function Layout({ children }: LayoutProps<"/">) {
   return (
