@@ -1,0 +1,21 @@
+# Ignore artifacts:
+build
+coverage
+
+# Next.js build output
+.next/
+out/
+build/
+dist/
+
+# Turbopack & cache
+.turbo/
+
+# Environment and type definitions
+next-env.d.ts
+
+# Dependencies
+node_modules/
+
+# Public assets or generated files
+public/
