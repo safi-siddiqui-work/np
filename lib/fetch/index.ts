@@ -58,5 +58,8 @@ const ModifyResponse = (body: RDType): RDType => {
 
     throw new ZodError(errors);
   }
+
+  console.log(body);
+
   return body;
 };
