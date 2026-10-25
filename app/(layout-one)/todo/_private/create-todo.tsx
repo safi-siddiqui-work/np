@@ -3,6 +3,7 @@
 import {
   FieldErrorUtil,
   FormSubmittingUtil,
+  ToastUtil,
 } from "@/components/general/client-util";
 import { Button } from "@/components/ui/button";
 import { Field } from "@/components/ui/field";
@@ -18,16 +19,15 @@ export const CreateTodo = () => {
   const form = useForm<z.infer<typeof CreateTodoSchema>>({
     resolver: zodResolver(CreateTodoSchema),
     defaultValues: {
-      title: "",
+      name: "",
     },
   });
 
   const onSubmit = async (data: z.infer<typeof CreateTodoSchema>) => {
     const formData = new FormData();
-    // formData.append("title", data.title);
-    // const action = await CreateTodoAction(formData);
+    formData.append("name", data.name);
     const res = await FormAction(form, CreateTodoAction(formData));
-    console.log(res);
+    return res?.success ? ToastUtil({ title: "Todo added" }) : undefined;
   };
 
   return (
@@ -37,7 +37,7 @@ export const CreateTodo = () => {
     >
       <Controller
         control={form?.control}
-        name="title"
+        name="name"
         render={({ field, fieldState }) => (
           <Field>
             <Textarea

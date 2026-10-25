@@ -5,7 +5,6 @@ import { FieldValues, Path, UseFormReturn } from "react-hook-form";
 
 export const FormAction = async <T extends FieldValues>(
   form: UseFormReturn<T>,
-  // obj: ResponseBodyType,
   obj: ResponseActionReturnType,
 ): ResponseActionReturnType =>
   ResponseAction(async () => {
@@ -17,8 +16,6 @@ export const FormAction = async <T extends FieldValues>(
         });
       });
     }
-    return {
-      success: true,
-      // data: res?.data,
-    };
+
+    return res;
   });

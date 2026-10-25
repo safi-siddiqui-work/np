@@ -1,45 +1,62 @@
-import { ResponseBodyType } from "../response/types";
+import { ZodError } from "zod";
+import { $ZodIssue } from "zod/v4/core";
+import { ResponseAction } from "../response";
+import { ResponseBodyDataType, ResponseBodyType } from "../response/types";
+
+type RDDType = {
+  type: string;
+  loc: string[];
+  msg: string;
+};
+
+type RDType = {
+  detail?: RDDType[];
+};
 
 export const FetchAction = async ({
   url,
   method = "GET",
-  type = "json",
   jsonBody,
   formData,
 }: {
   url: string;
   method: "GET" | "POST" | "PUT" | "DELETE";
-  type?: "json" | "form-data";
   jsonBody?: object;
   formData?: FormData;
-}): Promise<ResponseBodyType> => {
-  try {
+}): Promise<ResponseBodyType> =>
+  ResponseAction(async () => {
     const response = await fetch(url, {
       method: method,
       headers: {
-        // "Content-Type":
-        //   type == "json"
-        //     ? "application/json"
-        //     : "application/x-www-form-urlencoded",
+        // type == "json"
+        "Content-Type": jsonBody
+          ? "application/json"
+          : "application/x-www-form-urlencoded",
       },
-      body: type == "json" ? JSON.stringify(jsonBody) : formData,
+      body: jsonBody ? JSON.stringify(jsonBody) : formData,
     });
-    const data = await response.json();
-    console.log(response, data);
+    const data = (await response.json()) as RDType;
+    const res = ModifyResponse(data) as ResponseBodyDataType;
+
     return {
       success: true,
-      data: [],
+      data: res,
     };
-  } catch (err) {
-    return {
-      success: false,
-      errors: [
-        {
+  });
+
+const ModifyResponse = (body: RDType): RDType => {
+  // neglect body path to get field paths
+  if (body?.detail) {
+    const errors: $ZodIssue[] = body?.detail?.map(
+      (item) =>
+        ({
           code: "custom",
-          path: [],
-          message: "An error occurred while fetching data.",
-        },
-      ],
-    };
+          path: [...item?.loc?.slice(1)],
+          message: item?.msg,
+        }) satisfies $ZodIssue,
+    );
+
+    throw new ZodError(errors);
   }
+  return body;
 };
