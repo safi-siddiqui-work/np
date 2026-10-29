@@ -10,7 +10,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { setThemeCookie } from "@/lib/cookies/theme";
+import { getThemeCookie, setThemeCookie } from "@/lib/cookies/theme";
 import { useCallback, useEffect } from "react";
 
 export function ModeToggle() {
@@ -30,7 +30,11 @@ export function ModeToggle() {
   );
 
   useEffect(() => {
-    setThemeCB("system");
+    getThemeCookie()?.then((res) => {
+      if (!res) {
+        setThemeCB("system");
+      }
+    });
   }, [setThemeCB]);
 
   return (

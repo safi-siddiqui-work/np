@@ -18,6 +18,7 @@ export default async function HtmlClient({
   return (
     <html
       lang="en"
+      data-scroll-behavior="smooth"
       className={cn(
         inter.variable,
         "h-full scroll-smooth font-sans antialiased",

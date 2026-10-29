@@ -12,6 +12,15 @@ const nextConfig: NextConfig = {
       },
     },
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "dk3lrirh8u.ufs.sh",
+        pathname: "f/**",
+      },
+    ],
+  },
 };
 
 export default nextConfig;
