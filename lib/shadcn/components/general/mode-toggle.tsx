@@ -1,17 +1,16 @@
 "use client";
 
+import { getThemeCookie, setThemeCookie } from "@/lib/cookies/theme";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-
-import { Button } from "@/components/ui/button";
+import { useCallback, useEffect } from "react";
+import { Button } from "../ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { getThemeCookie, setThemeCookie } from "@/lib/cookies/theme";
-import { useCallback, useEffect } from "react";
+} from "../ui/dropdown-menu";
 
 export function ModeToggle() {
   const { setTheme, systemTheme } = useTheme();

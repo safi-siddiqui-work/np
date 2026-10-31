@@ -1,15 +1,15 @@
-import HtmlClient from "@/components/general/html-client";
-import { ThemeProvider } from "@/components/providers/theme-provider";
-import { Particles } from "@/components/ui/particles";
-import { Toaster } from "@/components/ui/toast";
-import { TooltipProvider } from "@/components/ui/tooltip";
+import HtmlClient from "@/lib/shadcn/components/general/html-client";
+import { ThemeProvider } from "@/lib/shadcn/components/providers/theme-provider";
+import { Particles } from "@/lib/shadcn/components/ui/particles";
+import { Toaster } from "@/lib/shadcn/components/ui/toast";
+import { TooltipProvider } from "@/lib/shadcn/components/ui/tooltip";
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Safi Siddiqui",
-  description: "Safi Siddiqui",
+  description: "Next.js TypeScript | Software | Business | Sales",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

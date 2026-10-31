@@ -6,7 +6,7 @@ import {
   useEffect,
   useRef,
 } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/shadcn/lib/utils";
 
 export interface ParticlesProps extends ComponentProps<"div"> {
   /**

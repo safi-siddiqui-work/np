@@ -1,5 +1,5 @@
-import { ModeToggle } from "@/components/general/mode-toggle";
 import { WebRoutes } from "@/lib/constants/routes/web-routes";
+import { ModeToggle } from "@/lib/shadcn/components/general/mode-toggle";
 import Link from "next/link";
 
 export const GeneralHeader = () => {

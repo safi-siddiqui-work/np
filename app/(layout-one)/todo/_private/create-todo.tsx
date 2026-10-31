@@ -1,14 +1,14 @@
 "use client";
 
+import { FormAction } from "@/lib/form";
 import {
   FieldErrorUtil,
   FormSubmittingUtil,
   ToastUtil,
-} from "@/components/general/client-util";
-import { Button } from "@/components/ui/button";
-import { Field } from "@/components/ui/field";
-import { Textarea } from "@/components/ui/textarea";
-import { FormAction } from "@/lib/form";
+} from "@/lib/shadcn/components/general/client-util";
+import { Button } from "@/lib/shadcn/components/ui/button";
+import { Field } from "@/lib/shadcn/components/ui/field";
+import { Textarea } from "@/lib/shadcn/components/ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
 import z from "zod";
